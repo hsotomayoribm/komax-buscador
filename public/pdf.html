@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <style>
+      .card {
+        margin-top: 1em;
+      }
+    </style>
+    
+    </script src="js/jquery-3.6.0.min.js">
+    </script defer src="js/all.js">
+
+    <!--JS-->
+    </script src="js/functions.js">
+    </script src="js/discovery.js">
+  </head>
+  <body>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div id="modal_table_display" class="card"></div>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!-- Title/Header -->
+    <section class="hero is-link" style="height: 3cm;">
+      <div class="hero-body">
+        <p class="title" id = "titulo" style="text-align: center;"></p>
+      </div>
+    </section>
+
+    <!-- Body -->
+        
+    <div id="pdf" style="height: 80vh; width: 80vw; text-align: center; margin-left: 3cm;"></div>
+    
+    <style>
+      .pdfobject-container {
+        height: 1cm;
+        text-align: center;
+        border: 0,5rem solid rgba(228, 255, 105, 0.1);
+      }
+    </style>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
+    <script>
+
+      var archivo = window.location.href;
+      archivo = archivo.substring(26).replaceAll('%20', ' ');
+      archivo = archivo.replaceAll("%C3%A1", 'á');
+      archivo = archivo.replaceAll("%C3%A9", 'é');
+      archivo = archivo.replaceAll("%C3%AD", 'í');
+      archivo = archivo.replaceAll("%C3%B3", 'ó');
+      archivo = archivo.replaceAll("%C3%BA", 'ú');
+      document.getElementById('titulo').innerHTML = archivo;
+      
+      if(archivo == 'SCRIPT FONDO E.pdf'){
+          var options = {
+          height: "480px",
+            pdfOpenParams: {
+              zoom: "60",
+              view: 'FitV',
+              pagemode: 'thumbs',
+              page: '7',
+            }
+          }
+      }else if(archivo == '16-02-21 Ingreso Solicitudes Subrogación.pdf'){
+          var options = {
+            height: "480px",
+              pdfOpenParams: {
+                zoom: "60",
+                view: 'FitV',
+                pagemode: 'thumbs',
+                page: '2',
+              }
+            }
+      }else if(archivo == '29-12-20 Ingreso Solicitudes Subrogación.pdf'){
+          var options = {
+              height: "480px",
+                pdfOpenParams: {
+                  zoom: "60",
+                  view: 'FitV',
+                  pagemode: 'thumbs',
+                  page: '3',
+                }
+              }
+      }else if(archivo == '22-06-21 Protocolo Clientes Molestos AFP.pdf'){
+          var options = {
+                height: "480px",
+                  pdfOpenParams: {
+                    zoom: "60",
+                    view: 'FitV',
+                    pagemode: 'thumbs',
+                    page: '3',
+                  }
+                }
+      
+      }else if(archivo == '23-02-21 Ley Enfermos Terminales.pdf'){
+        var options = {
+                height: "480px",
+                  pdfOpenParams: {
+                    zoom: "60",
+                    view: 'FitV',
+                    pagemode: 'thumbs',
+                    page: '3',
+                  }
+                }
+      }else if(archivo == '15-06-20 Ley de Proteccion al Empleador y Giro CAI.pdf'){
+        var options = {
+                height: "480px",
+                  pdfOpenParams: {
+                    zoom: "60",
+                    view: 'FitV',
+                    pagemode: 'thumbs',
+                    page: '5',
+                  }
+                }
+      }else if(archivo == '23-03-21 Capacitación legal mandatos.pdf'){
+        var options = {
+                height: "480px",
+                  pdfOpenParams: {
+                    zoom: "60",
+                    view: 'FitV',
+                    pagemode: 'thumbs',
+                    page: '3',
+                  }
+                }
+      }
+      else{
+        var options = {
+      height: "480px",
+        pdfOpenParams: {
+        zoom: "60",
+        view: 'FitV',
+        pagemode: 'thumbs',
+        }
+      }
+      };
+      PDFObject.embed("/media/"+archivo, "#pdf", options);
+      console.log("localhost:3000/media/"+archivo);
+  </script>
+  </body>
+</html>
